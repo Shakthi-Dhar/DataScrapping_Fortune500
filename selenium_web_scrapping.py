@@ -11,6 +11,8 @@ driver = webdriver.Chrome(PATH)
 
 # using web-driver initiate a call to the website
 url = "https://fortune.com/fortune500/2020/search/?sector=Retailing"
+# u can try on other fortune 500 websites also
+# url = "https://fortune.com/fortune500/2020/search/?sector=Technology"
 driver.get(url)
 
 # add a 10 sec wait for the page to completely load
