@@ -4,15 +4,16 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import csv
 
 # defining the path of your selenium web-driver
 PATH = "C:\Program Files (x86)\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 
 # using web-driver initiate a call to the website
-url = "https://fortune.com/fortune500/2020/search/?sector=Retailing"
-# u can try on other fortune 500 websites also
-# url = "https://fortune.com/fortune500/2020/search/?sector=Technology"
+# url = "https://fortune.com/fortune500/2020/search/?sector=Retailing"
+# you can try on other fortune 500 websites also
+url = "https://fortune.com/fortune500/2020/search/?sector=Technology"
 driver.get(url)
 
 # add a 10 sec wait for the page to completely load
@@ -21,6 +22,10 @@ driver.implicitly_wait(10)
 # declaring an empty list and dictionary
 data = []
 d = {}
+
+# know the field of search from url
+topic_loc = url.find("sector=")
+topic = url[topic_loc+len("sector="):]
 
 # declare a variable to get the total number of pages in the website
 L_page = driver.find_element_by_xpath('//*[@id="content"]/div[3]/div[2]/div/div[2]/div/div[2]/span[1]/span')
@@ -69,4 +74,11 @@ for n in range(1, L_page + 1):
 
 # our data is collected, print the list of dictionary and close the website
 print(data)
+keys = data[0].keys()
+
+with open(topic+'_Data.csv', 'w', newline='') as output_file:
+    dict_writer = csv.DictWriter(output_file, keys)
+    dict_writer.writeheader()
+    dict_writer.writerows(data)
+
 driver.close()
