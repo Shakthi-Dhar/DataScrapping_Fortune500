@@ -1,5 +1,4 @@
->__ What it does?
-
+>__<h3>What it does?</h3>
 Datafy is a **web scraped data provider website**, effortlessly download _CSV_ and _JSON_ Data of Companies listed in **Fortune 500**__
 
 Ever toured websites such as **Linkedin**, **Fortune500**, **Forbes** and believed it would have been exceptional if you could perceive all the _data_ existing in the website in an easy-to-use format preferable a _CSV_ or _JSON_, and then apply your codes or statistical analysis?
