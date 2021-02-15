@@ -1,4 +1,4 @@
-> __## What it does?
+>__ What it does?
 
 Datafy is a **web scraped data provider website**, effortlessly download _CSV_ and _JSON_ Data of Companies listed in **Fortune 500**__
 
